@@ -50,3 +50,7 @@ body{
 .oculto{
     display: none;
 }
+
+.tapada{
+    background-color: rgb(69, 38, 0);
+}
