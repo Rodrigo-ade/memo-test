@@ -1,32 +1,32 @@
 .ficha{
     border-style: solid;
     border-width: 2px;
-    border-color: rgb(145, 145, 1);
+    border-color: rgb(0, 0, 0);
     height: 100px;
     background-color: rgb(0, 0, 0);
 }
 
-#rojo{
+.rojo{
     background-color: rgb(185, 0, 0);
 }
 
-#celeste{
+.celeste{
     background-color: rgb(41, 199, 226);
 }
 
-#amarillo{
-    background-color: rgb(213, 213, 0);
+.amarillo{
+    background-color: yellow;
 }
 
-#verde{
+.verde{
     background-color: green;
 }
 
-#blanco{
+.blanco{
     background-color: white;
 }
 
-#naranja{
+.naranja{
     background-color: orange;
 }
 
@@ -45,4 +45,8 @@
 
 body{
     background-color: rgb(159, 159, 159);
+}
+
+.oculto{
+    display: none;
 }
