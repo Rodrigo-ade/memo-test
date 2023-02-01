@@ -19,7 +19,6 @@ function bloquearInputFichas(){
     let $fichas = document.querySelectorAll(".ficha");
     $fichas.forEach(function(ficha){
         ficha.onclick = function(){
-
         };
     });
 }
@@ -60,7 +59,6 @@ function manejarInputUsuario(evento){
             comprobarVictoria();
         },DELAY_COMPROBACION);
     }
-
 }
 
 const CANTIDAD_PARES = document.querySelectorAll(".ficha").length / 2;
@@ -72,8 +70,6 @@ function comprobarVictoria(){
        cantidadMovimientos = 0;
        paresEncontrados = 0;
         reiniciarFichas();
-       
-
     }
 }
 
@@ -109,7 +105,6 @@ function mezclarFichas(){
 
 function pintarFichas(arrayFichas){
     const FICHAS = document.querySelectorAll(".ficha");
-
     FICHAS.forEach(function(FICHA, index){
         FICHA.classList.add(`${arrayFichas[index]}`);
     });
