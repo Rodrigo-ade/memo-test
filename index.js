@@ -38,7 +38,6 @@ function manejarInputUsuario(evento){
         evento.target.classList.remove("tapada");
         bloquearInputFichas();
         if(fichaA.classList[2] === evento.target.classList[2]){
-            //Fichas son iguales
             paresEncontrados ++;
             setTimeout(function(){
                 fichaA.classList.add("encontrada");
@@ -46,7 +45,6 @@ function manejarInputUsuario(evento){
             },DELAY_COMPROBACION);
             
         }else{
-            //Fichas son distintas
             setTimeout(function(){
                 fichaA.classList.add("tapada");
                 evento.target.classList.add("tapada");
@@ -59,7 +57,6 @@ function manejarInputUsuario(evento){
             evento.target = null;
             desbloquearInputFichas();
             actualizarNumeroMovimientos();
-            console.log(paresEncontrados);
             comprobarVictoria();
         },DELAY_COMPROBACION);
     }
@@ -69,8 +66,22 @@ function manejarInputUsuario(evento){
 const CANTIDAD_PARES = document.querySelectorAll(".ficha").length / 2;
 function comprobarVictoria(){
     if(paresEncontrados === CANTIDAD_PARES ){
-        //COMPLETAR
+       document.querySelector("#tablero-juego").classList.add("oculto");
+       document.querySelector("#panel-inicio").classList.remove("oculto");
+       document.querySelector("#titulo").textContent = `Has ganado en ${cantidadMovimientos} movimientos! presiona jugar para volver a jugar.`
+       cantidadMovimientos = 0;
+       paresEncontrados = 0;
+        reiniciarFichas();
+       
+
     }
+}
+
+function reiniciarFichas(){
+    document.querySelectorAll(".ficha").forEach(function(ficha){
+        ficha.classList.remove("encontrada");
+        ficha.classList.remove(ficha.classList[2]);
+    });
 }
 
 function actualizarNumeroMovimientos(){
@@ -79,6 +90,7 @@ function actualizarNumeroMovimientos(){
 
 function comenzarJuego(){
     const PATRON_FICHAS = mezclarFichas();
+    actualizarNumeroMovimientos(cantidadMovimientos);
     pintarFichas(PATRON_FICHAS);
     ocultarFichas();
 }
