@@ -54,3 +54,7 @@ body{
 .tapada{
     background-color: rgb(69, 38, 0);
 }
+
+.encontrada{
+    visibility: hidden;
+}
