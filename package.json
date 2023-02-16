@@ -4,6 +4,7 @@
   "description": "Juego",
   "main": "index.js",
   "scripts": {
+    "abrir-servidor": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress-abrir": "cypress open",
     "cypress-consola-abrir": "cypress run"
