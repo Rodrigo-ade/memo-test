@@ -4,7 +4,10 @@
   "description": "Juego",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "servidor-abrir": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress-abrir": "cypress open",
+    "cypress-consola-abrir": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,8 @@
   "homepage": "https://github.com/Rodrigo-ade/memo-test#readme",
   "dependencies": {
     "bootstrap": "^5.2.3"
+  },
+  "devDependencies": {
+    "cypress": "^12.5.1"
   }
 }
