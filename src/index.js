@@ -1,9 +1,12 @@
 const $BOTON_JUGAR = document.querySelector("#jugar");
-document.querySelector("#tablero-juego").classList.add("oculto");
+const $PANEL_INICIO = document.querySelector("#panel-inicio");
+const $TABLERO_JUEGO = document.querySelector("#tablero-juego");
+
+$TABLERO_JUEGO.classList.add("oculto");
 
 $BOTON_JUGAR.onclick = function(){
-    document.querySelector("#panel-inicio").classList.add("oculto");
-    document.querySelector("#tablero-juego").classList.remove("oculto");
+    $PANEL_INICIO.classList.add("oculto");
+    $TABLERO_JUEGO.classList.remove("oculto");
     comenzarJuego();
     desbloquearInputFichas();
 }
@@ -64,8 +67,8 @@ function manejarInputUsuario(evento){
 const CANTIDAD_PARES = document.querySelectorAll(".ficha").length / 2;
 function comprobarVictoria(){
     if(paresEncontrados === CANTIDAD_PARES ){
-       document.querySelector("#tablero-juego").classList.add("oculto");
-       document.querySelector("#panel-inicio").classList.remove("oculto");
+        $TABLERO_JUEGO.classList.add("oculto");
+       $PANEL_INICIO.classList.remove("oculto");
        document.querySelector("#titulo").textContent = `Has ganado en ${cantidadMovimientos} movimientos! presiona jugar para volver a jugar.`
        cantidadMovimientos = 0;
        paresEncontrados = 0;
@@ -85,9 +88,9 @@ function actualizarNumeroMovimientos(){
 }
 
 function comenzarJuego(){
-    const PATRON_FICHAS = mezclarFichas();
+    const PATRON_COLORES_FICHAS = mezclarFichas();
     actualizarNumeroMovimientos(cantidadMovimientos);
-    pintarFichas(PATRON_FICHAS);
+    pintarFichas(PATRON_COLORES_FICHAS);
     ocultarFichas();
 }
 
@@ -103,10 +106,10 @@ function mezclarFichas(){
     return patron_fichas_mezclado;
 }
 
-function pintarFichas(arrayFichas){
+function pintarFichas(coloresFichas){
     const FICHAS = document.querySelectorAll(".ficha");
     FICHAS.forEach(function(FICHA, index){
-        FICHA.classList.add(`${arrayFichas[index]}`);
+        FICHA.classList.add(`${coloresFichas[index]}`);
     });
 }
 
