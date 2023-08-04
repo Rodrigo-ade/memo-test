@@ -23,35 +23,43 @@ h1{
     height: 100px;
 }
 
-.rojo{
+[color="rojo"]{
     background-color: red;
 }
 
-.azul{
+[color="azul"]{
     background-color: blue;
 }
 
-.amarillo{
+[color="amarillo"]{
     background-color: yellow;
 }
 
-.verde{
+[color="verde"]{
     background-color: green;
 }
 
-.celeste{
+[color="celeste"]{
     background-color: skyblue
 }
 
-.naranja{
+[color="naranja"]{
     background-color: orange;
 }
 
-.violeta{
+[color="violeta"]{
     background-color: violet;
 }
 
-.blanco{
+[color="blanco"]{
     background-color: white;
 }
 
+
+[oculta=true]{
+    background-color: grey;
+}
+
+[color="encontrada"]{
+    background-color: black;
+}
