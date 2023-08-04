@@ -13,19 +13,20 @@ function iniciarJuego(){
     colocarParesColores(mezclarColores(PARES_DE_COLORES));
     actualizarPanelTurno(turno,paresEncontrados);
     ocultarColorFichas($FICHAS);
-    habilitarSeleccionarFicha($FICHAS);
+    habilitarSeleccionarFicha();
 }
 
-function habilitarSeleccionarFicha(fichas){
-    fichas.forEach(function(ficha){
-        ficha.onclick = manejarElegirFicha;
-    });
+function habilitarSeleccionarFicha(){
+    document.querySelector("#tablero").onclick = function(e){
+        let $posibleFicha = e.target;
+        if($posibleFicha.classList.contains("ficha")){
+            manejarElegirFicha($posibleFicha);
+        };
+    };
 }
 
-function deshabilitarFichas($fichas){
-    $fichas.forEach(function (ficha){
-        ficha.onclick = function(){};
-    });
+function deshabilitarSeleccionarFicha(){
+    document.querySelector("#tablero").onclick = function(){};
 }
 
 function mostrarColorFicha($ficha){
@@ -33,31 +34,31 @@ function mostrarColorFicha($ficha){
 }
 
 let $primerFicha = "";
-let $segundaFicha = "";
-function manejarElegirFicha(e){
-    let fichaElegida = e.target;
+function manejarElegirFicha($ficha){
     if($primerFicha === ""){
-        $primerFicha = fichaElegida;
+        $primerFicha = $ficha;;
         mostrarColorFicha($primerFicha);
-        deshabilitarFichas([$primerFicha]);
         return;
     }
-    $segundaFicha = fichaElegida;
-    mostrarColorFicha($segundaFicha);
-    deshabilitarFichas($FICHAS);
+    if($primerFicha === $ficha){
+        return;
+    }
+
+    mostrarColorFicha($ficha);
+    deshabilitarSeleccionarFicha();
 
     setTimeout(function(){
-        if($primerFicha.getAttribute("color") === $segundaFicha.getAttribute("color")){
+        if($primerFicha.getAttribute("color") === $ficha.getAttribute("color")){
             $primerFicha.setAttribute("color","encontrada");
-            $segundaFicha.setAttribute("color","encontrada");
+            $ficha.setAttribute("color","encontrada");
             paresEncontrados ++;
         }else{
-            ocultarColorFichas([$primerFicha,$segundaFicha]);
+            ocultarColorFichas([$primerFicha,$ficha]);
         }
 
-        habilitarSeleccionarFicha($FICHAS);
+        habilitarSeleccionarFicha();
         $primerFicha = "";
-        $segundaFicha = "";
+        $ficha = "";
         turno ++;
         actualizarPanelTurno(turno,paresEncontrados);
          
