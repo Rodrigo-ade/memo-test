@@ -61,5 +61,5 @@ h1{
 }
 
 [color="encontrada"]{
-    background-color: black;
+    visibility: hidden;
 }
