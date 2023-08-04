@@ -83,19 +83,12 @@ function actualizarPanelTurno(turno,paresEncontrados){
 }
 
 function mezclarColores(colores){
-    let coloresOrdenados = duplicarColores(colores);
+    let coloresOrdenados = colores;
     const COLORES_MEZCLADOS = coloresOrdenados.sort(function(a, b) {
         return 0.5 - Math.random();
     });
-    return COLORES_MEZCLADOS;
-}
 
-function duplicarColores(colores){
-    let copiaColores = [];
-    colores.forEach(function (color){
-        copiaColores.push(color);
-    });
-    return copiaColores;
+    return COLORES_MEZCLADOS;
 }
 
 function colocarParesColores(colores){
