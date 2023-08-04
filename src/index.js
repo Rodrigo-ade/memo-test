@@ -25,10 +25,6 @@ function habilitarSeleccionarFicha(){
     };
 }
 
-function deshabilitarSeleccionarFicha(){
-    document.querySelector("#tablero").onclick = function(){};
-}
-
 function mostrarColorFicha($ficha){
     $ficha.setAttribute("oculta",false);
 }
@@ -36,7 +32,7 @@ function mostrarColorFicha($ficha){
 let $primerFicha = "";
 function manejarElegirFicha($ficha){
     if($primerFicha === ""){
-        $primerFicha = $ficha;;
+        $primerFicha = $ficha;
         mostrarColorFicha($primerFicha);
         return;
     }
@@ -45,27 +41,35 @@ function manejarElegirFicha($ficha){
     }
 
     mostrarColorFicha($ficha);
-    deshabilitarSeleccionarFicha();
 
-    setTimeout(function(){
-        if($primerFicha.getAttribute("color") === $ficha.getAttribute("color")){
-            $primerFicha.setAttribute("color","encontrada");
-            $ficha.setAttribute("color","encontrada");
-            paresEncontrados ++;
-        }else{
-            ocultarColorFichas([$primerFicha,$ficha]);
-        }
+    if($primerFicha.getAttribute("color") === $ficha.getAttribute("color")){
+        fichaEncontrada($primerFicha);
+        fichaEncontrada($ficha);
+        paresEncontrados ++;
+    }else{
+        ocultarColorFicha($primerFicha);
+        ocultarColorFicha($ficha);
+    }
 
-        habilitarSeleccionarFicha();
-        $primerFicha = "";
-        $ficha = "";
-        turno ++;
-        actualizarPanelTurno(turno,paresEncontrados);
+    $primerFicha = "";
+    $ficha = "";
+    turno ++;
+    actualizarPanelTurno(turno,paresEncontrados);
          
-        if(paresEncontrados === COLORES.length){
-            manejarVictoria();
-        }
+    if(paresEncontrados === COLORES.length){
+        manejarVictoria();
+    }
+}
 
+function ocultarColorFicha($ficha){
+    setTimeout(function(){
+        $ficha.setAttribute("oculta",true);
+    },500);
+}
+
+function fichaEncontrada($ficha){
+    setTimeout(function(){
+        $ficha.setAttribute("color","encontrada");
     },500);
 }
 
