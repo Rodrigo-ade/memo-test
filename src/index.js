@@ -2,8 +2,8 @@ const $FICHAS = document.querySelectorAll(".ficha");
 const COLORES = ["azul","rojo","amarillo","verde","violeta","naranja","celeste","blanco"];
 const PARES_DE_COLORES = COLORES.concat(COLORES);
 const $JUGAR = document.querySelector(".btn");
-let turno = 1;
-let paresEncontrados = 0;
+let turno;
+let paresEncontrados;
 
 $JUGAR.onclick = iniciarJuego;
 
@@ -84,13 +84,9 @@ function actualizarPanelTurno(turno,paresEncontrados){
 
 function mezclarColores(colores){
     let coloresOrdenados = duplicarColores(colores);
-    const COLORES_MEZCLADOS = [];
-    while(coloresOrdenados.length != 0){
-        let numeroRandom = Math.floor(Math.random() * coloresOrdenados.length);
-        const COLOR = coloresOrdenados[numeroRandom];
-        COLORES_MEZCLADOS.push(COLOR);
-        coloresOrdenados.splice(numeroRandom,1);
-    }
+    const COLORES_MEZCLADOS = coloresOrdenados.sort(function(a, b) {
+        return 0.5 - Math.random();
+    });
     return COLORES_MEZCLADOS;
 }
 
