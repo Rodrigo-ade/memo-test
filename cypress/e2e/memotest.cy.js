@@ -1,3 +1,4 @@
+/// <reference types="Cypress" />
 
 const URL = "http://192.168.0.81:8080"
 const CANTIDAD_PARES = 8;
