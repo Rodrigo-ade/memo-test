@@ -74,7 +74,7 @@ function fichaEncontrada($ficha){
 }
 
 function manejarVictoria(){
-    document.querySelector("#situacion-turno").textContent = `Ganaste en tu ${turno}º turno!!!`;
+    document.querySelector("#situacion-turno").textContent = `Ganaste en tu ${turno-1}º turno!!!`;
 }
 
 function ocultarColorFichas($fichas){
