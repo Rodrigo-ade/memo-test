@@ -1,0 +1,19 @@
+{
+  "name": "memo-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cypress-abrir": "cypress open",
+    "cypress-terminal":"cypress run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rodrigo",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.1"
+  },
+  "devDependencies": {
+    "cypress": "^12.17.3"
+  }
+}

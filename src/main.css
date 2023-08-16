@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(81, 81, 81) !important;
+    margin: 0;
+}
+
+h1{
+    color: rgb(0, 0, 0) !important;
+}
+
+.alert{
+    width: 30% !important;
+    margin: 0 auto;
+}
+
+.btn{
+    width: 100px !important;
+}
+
+.ficha{
+    background-color: rgb(255, 255, 255);
+    margin: 3px;
+    border: 3px solid black;
+    height: 100px;
+}
+
+[color="rojo"]{
+    background-color: red;
+}
+
+[color="azul"]{
+    background-color: blue;
+}
+
+[color="amarillo"]{
+    background-color: yellow;
+}
+
+[color="verde"]{
+    background-color: green;
+}
+
+[color="celeste"]{
+    background-color: skyblue
+}
+
+[color="naranja"]{
+    background-color: orange;
+}
+
+[color="violeta"]{
+    background-color: violet;
+}
+
+[color="blanco"]{
+    background-color: white;
+}
+
+
+[oculta=true]{
+    background-color: grey;
+}
+
+[color="encontrada"]{
+    visibility: hidden;
+}
